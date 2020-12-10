@@ -8,6 +8,7 @@ const ButtonStyled = styled.button`
     font-weight: bold;
     border-radius: 6px;
     font-size: 15px;
+    cursor: pointer;
     ${props => props.outline && css`
             border: 1px solid lightGray;
             background-color: transparent;
