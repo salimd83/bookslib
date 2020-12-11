@@ -12,7 +12,6 @@ function App() {
     pages: "",
     publishDate: "",
   });
-  const [error, setError] = useState(null);
   const [books, setBooks] = useState([]);
 
   useEffect(() => {

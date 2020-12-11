@@ -6,6 +6,7 @@ function BookForm({ book, setBook }) {
   const db = firebase.firestore();
   const [loading, setLoading] = useState(false);
   const [isModal, setIsModal] = useState(false);
+  const [error, setError] = useState(null);
 
   const onSubmit = async (e) => {
     e.preventDefault();
