@@ -21,12 +21,12 @@ const PStyled = styled.p`
     `};
 `;
 
-function Message({ error, type }) {
+function Message({ text, type }) {
   return (
     <>
-      {error && (
+      {text && (
         <PStyled type={type} className={type}>
-          {error}
+          {text}
         </PStyled>
       )}
     </>

@@ -10,3 +10,10 @@ html {
   -moz-box-sizing: inherit;
   box-sizing: inherit;
 }
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
