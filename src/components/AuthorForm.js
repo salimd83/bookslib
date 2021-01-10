@@ -1,4 +1,5 @@
 import { Field, Message, Button } from "../ui";
+import profileImg from "../profile-placeholder.png";
 
 function AuthorForm({ error, loading, onSubmit, author, setAuthor }) {
   const handleChange = (e) => {
@@ -6,6 +7,19 @@ function AuthorForm({ error, loading, onSubmit, author, setAuthor }) {
       ...author,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const handleFile = (e) => {
+    const file = e.target.files[0];
+    if (!file || !file.type.startsWith("image/")) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      setAuthor({
+        ...author,
+        photo: e.target.result
+      })
+    }
+    reader.readAsDataURL(file);
   };
 
   return (
@@ -20,7 +34,18 @@ function AuthorForm({ error, loading, onSubmit, author, setAuthor }) {
         />
       </Field>
       <Field labelText="Photo">
-        <input type="file" name="photo" id="author-photo" />
+        <div>
+          <figure>
+            <img src={author.photo == '' ? profileImg : author.photo} width="120" alt="" />
+          </figure>
+          <input
+            type="file"
+            onChange={handleFile}
+            name="photo"
+            accept="image/*"
+            id="author-photo"
+          />
+        </div>
       </Field>
       <Field labelText="Name">
         <textarea

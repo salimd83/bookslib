@@ -4,6 +4,7 @@ import Field from './Field';
 import Modal from './Modal';
 import Toaster from './Toaster';
 import Loading from './Loading';
+import Divider from './Divider';
 
 export {
     Button,
@@ -11,5 +12,6 @@ export {
     Field,
     Modal,
     Toaster,
-    Loading
+    Loading,
+    Divider
 }
