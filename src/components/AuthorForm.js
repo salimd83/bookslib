@@ -1,5 +1,6 @@
 import { Field, Message, Button } from "../ui";
 import profileImg from "../profile-placeholder.png";
+import {getBase64URL} from '../functions/imageFn';
 
 function AuthorForm({ error, loading, onSubmit, author, setAuthor }) {
   const handleChange = (e) => {
@@ -9,17 +10,12 @@ function AuthorForm({ error, loading, onSubmit, author, setAuthor }) {
     });
   };
 
-  const handleFile = (e) => {
-    const file = e.target.files[0];
-    if (!file || !file.type.startsWith("image/")) return;
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      setAuthor({
-        ...author,
-        photo: e.target.result
-      })
-    }
-    reader.readAsDataURL(file);
+  const handleFile = async (e) => {
+    const base64URL = await getBase64URL(e.target.files[0]);
+    setAuthor({
+      ...author,
+      photo: base64URL
+    });
   };
 
   return (

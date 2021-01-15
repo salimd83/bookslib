@@ -1,11 +1,6 @@
 import { useEffect, useReducer } from "react";
 import firebase from "firebase/app";
-import {
-  useParams,
-  useRouteMatch,
-  Route,
-  Switch
-} from "react-router-dom";
+import { useParams, useRouteMatch, Route, Switch } from "react-router-dom";
 import { Loading } from "../ui";
 import BookGeneral from "./book-details/BookGeneral";
 import BookAuthors from "./book-details/BookAuthors";
@@ -16,14 +11,28 @@ const initialState = null;
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'addAuthor':
-      return {...state, authors: [...(state.authors || []), action.author]}
-    case 'removeAuthor':
-      return {...state, authors: [...state.authors.filter(author => author.name !== action.name)]}
-    case 'setBook':
-      return {...action.book}
+    case "addAuthor":
+      return { ...state, authors: [...(state.authors || []), action.author] };
+    case "removeAuthor":
+      return {
+        ...state,
+        authors: [
+          ...state.authors.filter((author) => author.name !== action.name),
+        ],
+      };
+    case "addPhoto":
+      return { ...state, photos: [...(state.photos || []), action.photo] };
+    case "removePhoto":
+      return {
+        ...state,
+        photos: [
+          ...state.photos.filter((photo) => photo !== action.photo),
+        ],
+      };
+    case "setBook":
+      return { ...action.book };
     default:
-      throw new Error('Unknown action.')
+      throw new Error("Unknown action.");
   }
 }
 
@@ -37,7 +46,7 @@ function BookDetails() {
       try {
         const docRef = await firebase.firestore().collection("books").doc(id);
         const doc = await docRef.get();
-        bookDispatch({type: 'setBook', book: doc.data()});
+        bookDispatch({ type: "setBook", book: doc.data() });
       } catch (e) {
         console.error(e);
       }
@@ -57,7 +66,7 @@ function BookDetails() {
             <BookAuthors book={book} id={id} dispatch={bookDispatch} />
           </Route>
           <Route path={`${match.path}/photos`}>
-            <BookPhotos book={book} />
+            <BookPhotos book={book} id={id} dispatch={bookDispatch} />
           </Route>
         </Switch>
       ) : (

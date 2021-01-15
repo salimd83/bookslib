@@ -5,6 +5,7 @@ import Modal from './Modal';
 import Toaster from './Toaster';
 import Loading from './Loading';
 import Divider from './Divider';
+import DropBox from './DropBox';
 
 export {
     Button,
@@ -13,5 +14,6 @@ export {
     Modal,
     Toaster,
     Loading,
-    Divider
+    Divider,
+    DropBox
 }
