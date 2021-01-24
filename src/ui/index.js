@@ -6,6 +6,8 @@ import Toaster from './Toaster';
 import Loading from './Loading';
 import Divider from './Divider';
 import DropBox from './DropBox';
+import ImgProgress from './ImgProgress';
+import Gallery from './Gallery';
 
 export {
     Button,
@@ -15,5 +17,7 @@ export {
     Toaster,
     Loading,
     Divider,
-    DropBox
+    DropBox,
+    ImgProgress,
+    Gallery
 }

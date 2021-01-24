@@ -21,6 +21,7 @@ function Dropbox({onFiles}) {
   const [dragEnter, setDragEnter] = useState(false);
   const handleFiles = (e) => {
     console.log(e.target.files);
+    onFiles(e.target.files);
   };
   const handleDragEnter = (e) => {
     e.stopPropagation();

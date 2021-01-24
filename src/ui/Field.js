@@ -5,6 +5,7 @@ const StyledDiv = styled.div`
     display: flex;
     border-bottom: #f0f0f0 1px solid;
     padding-bottom: 20px;
+    align-items: center;
 `;
 
 const StyledLabel = styled.label`
