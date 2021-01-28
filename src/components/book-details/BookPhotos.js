@@ -1,7 +1,7 @@
 import { useState } from "react";
 import firebase from "firebase/app";
 import { DropBox, Divider, ImgProgress, Gallery } from "../../ui";
-import { getBase64URL, resizeImg } from "../../functions/imageFn";
+import { getBase64URL, resizeImg, prefixFileName } from "../../functions/imageFn";
 
 function BookPhotos({ book, id, dispatch }) {
   const [imgs, setImgs] = useState([]);
@@ -10,7 +10,7 @@ function BookPhotos({ book, id, dispatch }) {
       try {
         const base64URL = await getBase64URL(files[i]);
         setImgs((imgs) => [...imgs, { url: base64URL, percent: 0 }]);
-        const blob = await resizeImg(base64URL, 2000, false);
+        const blob = await resizeImg(base64URL, 1600, false);
         const imageName = `images/books/${Date.now()}.jpeg`;
         const uploadTask = firebase
           .storage()
@@ -39,6 +39,19 @@ function BookPhotos({ book, id, dispatch }) {
           },
           async () => {
             const downloadURL = await uploadTask.snapshot.ref.getDownloadURL();
+            // uploadTask.snapshot.ref.fullpath
+            // uploadTask.snapshot.ref.bucket
+            // contentType: image/jpeg
+            const generateThumbnail = firebase.functions().httpsCallable('generateThumbnail');
+            try {
+              await generateThumbnail({
+                bucket: uploadTask.snapshot.ref.bucket,
+                fullPath: uploadTask.snapshot.ref.fullPath,
+                contentType: 'image/jpeg'
+              })
+            } catch (e) {
+              console.error(e);
+            }
             setTimeout(
               () => setImgs((imgs) => imgs.filter((img, j) => j === i)),
               800
@@ -63,6 +76,7 @@ function BookPhotos({ book, id, dispatch }) {
     return new Promise(async (resolve, reject) => {
       try {
         await firebase.storage().refFromURL(imgURL).delete();
+        await firebase.storage().refFromURL(prefixFileName(imgURL, "thumb_")).delete();
         await firebase.firestore().collection('books').doc(id).update({
           photos: firebase.firestore.FieldValue.arrayRemove(imgURL)
         });

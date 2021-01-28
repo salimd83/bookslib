@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import styled, { css } from "styled-components";
 import { ToasterContext } from "./ToasterContext";
 import IconButton from "./IconButton";
+import {prefixFileName} from '../functions/imageFn';
 
 const Figure = styled.div`
   position: relative;
@@ -49,7 +50,7 @@ function Image({ img, deletePhoto }) {
   };
   return (
     <Figure loading={loading.toString()}>
-      <img src={img} height="150" alt="" />
+      <img src={prefixFileName(img, 'thumb_')} height="150" alt="" />
       <div>
         <IconButton
           iconClass="fas fa-trash"

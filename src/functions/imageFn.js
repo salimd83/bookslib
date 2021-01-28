@@ -8,18 +8,26 @@ function _createImg(photo) {
   });
 }
 
+function prefixFileName(url, prefix) {
+  let filename = url.split("%2F").pop();
+  filename = `${prefix}${filename}`;
+  return `${url.split("%2F").slice(0, -1).join("%2F")}%2F${filename}`;
+}
+
 function _resizer(img, size) {
   let x = 0,
     y = 0,
-    w = size,
-    h = size;
+    w = img.naturalWidth,
+    h = img.naturalHeight;
 
   if (img.naturalWidth > img.naturalHeight) {
     if (img.naturalWidth > size) {
+      w = size;
       h = (size * img.naturalHeight) / img.naturalWidth;
     }
   } else {
     if (img.naturalHeight > size) {
+      h = size;
       w = (size * img.naturalWidth) / img.naturalHeight;
     }
   }
@@ -75,4 +83,4 @@ async function resizeImg(photo, size, crop = true) {
   });
 }
 
-export { resizeImg, getBase64URL };
+export { resizeImg, getBase64URL, prefixFileName };
