@@ -7,11 +7,13 @@ import { ToasterProvider } from "./ui/ToasterContext";
 import { AuthProvider } from "./authContext";
 import Header from "./components/Header";
 import PrivateRoute from "./PrivateRoute";
+import GlobalStyle from './GlobalStyle';
 
 function App() {
   return (
     <AuthProvider>
       <Router>
+        <GlobalStyle />
         <ToasterProvider>
           <div className="App">
             <Header />

@@ -59,7 +59,7 @@ function SignIn() {
             id="password"
           />
         </Field>
-        <Button type="submit" loading={loading}>Sign in</Button>
+        <Button variant="secondary" type="submit" loading={loading}>Sign in</Button>
         <Message text={error} type="error" />
       </form>
     </div>
