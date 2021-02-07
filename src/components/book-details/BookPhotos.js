@@ -1,6 +1,7 @@
 import { useState } from "react";
 import firebase from "firebase/app";
-import { DropBox, Divider, ImgProgress, Gallery } from "../../ui";
+import Divider  from "../../ui/core/Divider";
+import { DropBox, ImgProgress, Gallery } from "../../ui";
 import { getBase64URL, resizeImg, prefixFileName } from "../../functions/imageFn";
 
 function BookPhotos({ book, id, dispatch }) {

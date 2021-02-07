@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import firebase from "firebase/app";
-import { Button, Modal } from "../ui";
+import { Button } from "../ui/core";
+import Modal from "../ui/Modal";
 import { ToasterContext } from "../ui/ToasterContext";
 import BookForm from "./BookForm";
 
-function AddBook() {
+function AddBook(props) {
   const history = useHistory();
 
   const [loading, setLoading] = useState(false);
@@ -49,10 +50,10 @@ function AddBook() {
   return (
     <ToasterContext.Consumer>
       {({ addToast }) => (
-        <>
+        <div {...props}>
           <div>
             <Button onClick={modalShow.bind(this, true)} outline>
-              Add Book
+              Add Product
             </Button>
           </div>
           <Modal
@@ -65,7 +66,7 @@ function AddBook() {
               onSubmit={onSubmit.bind(this, addToast)}
             />
           </Modal>
-        </>
+        </div>
       )}
     </ToasterContext.Consumer>
   );

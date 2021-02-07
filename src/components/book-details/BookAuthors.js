@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import styled from 'styled-components';
 import firebase from "firebase/app";
-import {Divider} from '../../ui';
+import {Divider} from '../../ui/core';
 import { ToasterContext } from "../../ui/ToasterContext";
-import AuthorForm from "../AuthorForm";
+import AuthorForm from "./AuthorForm";
 import BookAuthor from "./BookAuthor";
 import { resizeImg } from '../../functions/imageFn';
 

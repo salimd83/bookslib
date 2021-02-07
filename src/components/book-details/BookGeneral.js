@@ -1,4 +1,4 @@
-import EditBook from '../EditBook';
+import EditBook from './EditBook';
 
 function BookGeneral({ book, id }) {
   return (

@@ -1,9 +1,13 @@
 import { createGlobalStyle } from "styled-components";
-import resetStyle from './resetStyle';
+import resetStyle from "./resetStyle";
+
+const breakpoints = {
+  desktop: "920px",
+};
 
 const GlobalStyle = createGlobalStyle`
     html {
-        --color-dark: #656565;
+        --color-dark: #444;
         --color-light: #f6f6f6;
         --color-dark-contrast: var(--color-light);
         --color-light-contrast: var(--color-dark);
@@ -12,9 +16,11 @@ const GlobalStyle = createGlobalStyle`
         --color-gray: rgba(0,0,0, 0.5);
         --color-gray-contrast: var(--color-light);
         --color-primary: #ff6358;
+        --color-primary-rgb: 255,99,88;
         --color-primary-contrast: var(--color-light);
         --color-primary-hover: #ff6358;
         --color-secondary: #03a9f4;
+        --color-secondary-rgb: 3,169,244;
         --color-secondary-contrast: var(--color-light);
         --color-secondary-hover: #03a9f4;
         --color-green: #37b400;
@@ -35,28 +41,67 @@ const GlobalStyle = createGlobalStyle`
         --space-4: 32px;
         --space-5: 64px;
         --space-6: 128px;
+        --primary-font: 'Roboto', sans-serif;
         --fsize-1: 10px;
         --fsize-2: 12px;
-        --fsize-3: 14px;
-        --fsize-4: 18px;
-        --fsize-5: 24px;
-        --fsize-6: 34px;
+        --fsize-3: 13px;
+        --fsize-4: 14px;
+        --fsize-5: 16px;
+        --fsize-6: 20px;
+        --fsize-7: 24px;
+        --fsize-8: 28px;
+        --fsize-9: 32px;
         --height-input: var(--space-4);
         --height-button: var(--space-4);
         --min-width-button: var(--space-4);
         --px-button: var(--space-2);
+        --navbar-width: 256px;
 
-        @media(max-width: 1024px) {
+        @media(max-width: ${breakpoints.desktop}) {
             --height-button: calc(var(--space-4) + 8px);
             --px-button: calc(var(--space-2) + 8px);
         }
     }
-
+    ${resetStyle}
+    
+    body {
+        font-size: var(--fsize-3);
+        font-family: var(--primary-font);
+        background-color: var(--color-light);
+        color: var(--color-dark);
+    }
+    h1, h2, h3, h4, h4, h5, h6 {
+        font-weight: 500;
+    }
+    h1 {
+        font-size: var(--fsize-9);
+    }
+    h2 {
+        font-size: var(--fsize-8);
+    }
+    h3 {
+        font-size: var(--fsize-7);
+    }
+    h4 {
+        font-size: var(--fsize-6);
+    }
+    h5 {
+        font-size: var(--fsize-5);
+    }
+    h6 {
+        font-size: var(--fsize-4);
+    }
+    p {
+        font-size: var(--fsize-4);
+        margin: 15px 0;
+    }
     a {
         text-decoration: none;
+        color: var(--color-primary);
     }
     a:hover {
         text-decoration: underline;
+        color: var(--color-primary-hover);
     }
     input {
         height: 28px;
@@ -74,8 +119,7 @@ const GlobalStyle = createGlobalStyle`
         clip: rect(1px, 1px, 1px, 1px);
         opacity: 0;
     }
-
-    ${resetStyle}
 `;
 
 export default GlobalStyle;
+export { breakpoints };

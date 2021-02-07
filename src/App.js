@@ -1,12 +1,12 @@
-import { Switch, Route, Link, BrowserRouter as Router } from "react-router-dom";
-import BookList from "./components/BookList";
-import BookDetails from "./components/BookDetails";
-import SignIn from "./components/SignIn";
+import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
+import BookList from "./pages/BookList";
+import BookDetails from "./pages/BookDetails";
+import SignIn from "./pages/SignIn";
+import Home from "./pages/Home";
 import "./styles.css";
 import { ToasterProvider } from "./ui/ToasterContext";
 import { AuthProvider } from "./authContext";
-import Header from "./components/Header";
-import PrivateRoute from "./PrivateRoute";
+import PrivateRoute from "./components/PrivateRoute";
 import GlobalStyle from './GlobalStyle';
 
 function App() {
@@ -16,16 +16,14 @@ function App() {
         <GlobalStyle />
         <ToasterProvider>
           <div className="App">
-            <Header />
-
             <Switch>
-              <Route path="/" exact>
-                <h2>Welcome to Books lib</h2>
-              </Route>
-              <PrivateRoute path="/books">
+              <PrivateRoute path="/" exact>
+                <Home />
+              </PrivateRoute>
+              <PrivateRoute path="/books" exact>
                 <BookList />
               </PrivateRoute>
-              <PrivateRoute path="/book/:id">
+              <PrivateRoute path="/books/:id">
                 <BookDetails />
               </PrivateRoute>
               <Route path="/signin">

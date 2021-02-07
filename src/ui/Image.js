@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import styled, { css } from "styled-components";
 import { ToasterContext } from "./ToasterContext";
-import IconButton from "./IconButton";
+import IconButton from "./core/IconButton";
 import {prefixFileName} from '../functions/imageFn';
 
 const Figure = styled.div`

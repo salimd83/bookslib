@@ -1,6 +1,7 @@
-import { Field, Message, Button } from "../ui";
-import profileImg from "../profile-placeholder.png";
-import {getBase64URL} from '../functions/imageFn';
+import { Message, Button } from "../../ui/core";
+import Field from "../../ui/Field";
+import profileImg from "../../profile-placeholder.png";
+import {getBase64URL} from '../../functions/imageFn';
 
 function AuthorForm({ error, loading, onSubmit, author, setAuthor }) {
   const handleChange = (e) => {
@@ -32,7 +33,7 @@ function AuthorForm({ error, loading, onSubmit, author, setAuthor }) {
       <Field labelText="Photo">
         <div>
           <figure>
-            <img src={author.photo == '' ? profileImg : author.photo} width="120" alt="" />
+            <img src={author.photo === '' ? profileImg : author.photo} width="120" alt="" />
           </figure>
           <input
             type="file"

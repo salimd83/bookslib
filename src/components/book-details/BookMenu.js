@@ -15,10 +15,10 @@ const StyledUl = styled.ul`
   }
 `;
 
-function BookMenu({ url }) {
+function BookMenu({ url, ...rest }) {
   const location = useLocation();
   return (
-    <StyledUl>
+    <StyledUl {...rest}>
       <li className={(location.pathname === url && 'active').toString()}>
         <Link to={`${url}`}>General information</Link>
       </li>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import {useHistory, useLocation} from 'react-router-dom';
-import { Field, Button, Message } from "../ui";
+import { Button, Message } from "../ui/core";
+import { Field } from "../ui";
 import {useAuth} from '../authContext';
 
 function SignIn() {
@@ -59,7 +60,7 @@ function SignIn() {
             id="password"
           />
         </Field>
-        <Button variant="secondary" type="submit" loading={loading}>Sign in</Button>
+        <Button type="submit" loading={loading}>Sign in</Button>
         <Message text={error} type="error" />
       </form>
     </div>

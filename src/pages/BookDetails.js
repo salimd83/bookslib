@@ -1,11 +1,13 @@
 import { useEffect, useReducer } from "react";
 import firebase from "firebase/app";
 import { useParams, useRouteMatch, Route, Switch } from "react-router-dom";
-import { Loading } from "../ui";
-import BookGeneral from "./book-details/BookGeneral";
-import BookAuthors from "./book-details/BookAuthors";
-import BookPhotos from "./book-details/BookPhotos";
-import BookMenu from "./book-details/BookMenu";
+import { Loading } from "../ui/core";
+import BookGeneral from "../components/book-details/BookGeneral";
+import BookAuthors from "../components/book-details/BookAuthors";
+import BookPhotos from "../components/book-details/BookPhotos";
+import BookMenu from "../components/book-details/BookMenu";
+import Layout from "../components/layout/Layout";
+import Page from "../components/layout/Page";
 
 const initialState = null;
 
@@ -25,9 +27,7 @@ function reducer(state, action) {
     case "removePhoto":
       return {
         ...state,
-        photos: [
-          ...state.photos.filter((photo) => photo !== action.photo),
-        ],
+        photos: [...state.photos.filter((photo) => photo !== action.photo)],
       };
     case "setBook":
       return { ...action.book };
@@ -54,25 +54,28 @@ function BookDetails() {
   }, [id]);
 
   return (
-    <div>
-      <h2>Books Details</h2>
-      <BookMenu url={match.url} />
-      {book ? (
-        <Switch>
-          <Route path={`${match.path}`} exact>
-            <BookGeneral book={book} id={id} />
-          </Route>
-          <Route path={`${match.path}/authors`}>
-            <BookAuthors book={book} id={id} dispatch={bookDispatch} />
-          </Route>
-          <Route path={`${match.path}/photos`}>
-            <BookPhotos book={book} id={id} dispatch={bookDispatch} />
-          </Route>
-        </Switch>
-      ) : (
-        <Loading />
-      )}
-    </div>
+    <Layout>
+      <Page title="Product Details">
+        <BookMenu url={match.url} />
+        <div>
+          {book ? (
+            <Switch>
+              <Route path={`${match.path}`} exact>
+                <BookGeneral book={book} id={id} />
+              </Route>
+              <Route path={`${match.path}/authors`}>
+                <BookAuthors book={book} id={id} dispatch={bookDispatch} />
+              </Route>
+              <Route path={`${match.path}/photos`}>
+                <BookPhotos book={book} id={id} dispatch={bookDispatch} />
+              </Route>
+            </Switch>
+          ) : (
+            <Loading />
+          )}
+        </div>
+      </Page>
+    </Layout>
   );
 }
 

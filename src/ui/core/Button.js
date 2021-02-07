@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import {Loading} from '../ui';
+import Loading from './Loading';
 
 const ButtonStyled = styled.button`
   border: 1px solid var(--color-border);

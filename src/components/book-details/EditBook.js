@@ -1,7 +1,7 @@
 import { useState } from "react";
 import firebase from "firebase/app";
-import { ToasterContext } from "../ui/ToasterContext";
-import BookForm from "./BookForm";
+import { ToasterContext } from "../../ui/ToasterContext";
+import BookForm from "../BookForm";
 
 function EditBook(props) {
   const [loading, setLoading] = useState(false);
