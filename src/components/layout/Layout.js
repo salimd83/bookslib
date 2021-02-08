@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import Header from "./Header";
 import Navbar from "./Navbar";
@@ -12,6 +13,7 @@ const Grid = styled.div`
 
 const GridNav = styled.div`
   grid-area: nav;
+  z-index: 2000;
 `;
 
 const GridHeader = styled.header`
@@ -23,13 +25,15 @@ const GridMain = styled.main`
 `;
 
 function Layout({ children, ...rest }) {
+    const [showNav, setShowNav] = useState(0);
+    const toggle = () => setShowNav(Number(!showNav));
   return (
     <Grid {...rest}>
       <GridNav>
-        <Navbar />
+        <Navbar visible={showNav} close={toggle} />
       </GridNav>
       <GridHeader>
-        <Header />
+        <Header toggle={toggle} />
       </GridHeader>
       <GridMain>{children}</GridMain>
     </Grid>

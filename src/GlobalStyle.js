@@ -1,6 +1,10 @@
 import { createGlobalStyle } from "styled-components";
 import resetStyle from './resetStyle';
 
+const breakpoints = {
+    desktop: '920px',
+}
+
 const GlobalStyle = createGlobalStyle`
     html {
         --color-dark: #656565;
@@ -53,7 +57,7 @@ const GlobalStyle = createGlobalStyle`
         --px-button: var(--space-2);
         --navbar-width: 256px;
 
-        @media(max-width: 1024px) {
+        @media(max-width: ${breakpoints.desktop}) {
             --height-button: calc(var(--space-4) + 8px);
             --px-button: calc(var(--space-2) + 8px);
         }
@@ -120,3 +124,6 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default GlobalStyle;
+export {
+    breakpoints
+}
