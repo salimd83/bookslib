@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 
 const Grid = styled.div`
   display: grid;
-  grid-template:
+  grid:
     "nav header" min-content
     "nav main" 1fr / min-content 1fr;
   min-height: 100vh;

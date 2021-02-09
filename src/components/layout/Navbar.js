@@ -2,13 +2,23 @@ import styled from "styled-components";
 import Logo from "./navbar/Logo";
 import { breakpoints as bp } from "../../GlobalStyle";
 import Backdrop from "../../ui/Backdrop";
+import NavLink from "./navbar/NavLink";
+import NavLinksGroup from "./navbar/NavLinksGroup";
+import { useState } from "react";
+import NavToggle from "./navbar/NavToggle";
 
 const StyledNav = styled.nav`
   background-color: black;
-  width: var(--navbar-width);
+  width: ${(p) => (p.compact ? "70px" : "var(--navbar-width)")};
   height: 100vh;
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  transition-property: width, transform !important;
+  transition-duration: 0.3s !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1) !important;
   &::before {
     content: "";
     background-color: rgba(var(--color-secondary-rgb), 0.2);
@@ -34,11 +44,26 @@ const StyledNav = styled.nav`
 `;
 
 function Navbar(props) {
+  const [compact, setCompact] = useState(0);
   return (
     <>
       <Backdrop visible={props.visible} onClick={props.close} />
-      <StyledNav {...props}>
-        <Logo />
+      <StyledNav compact={compact} {...props}>
+        <Logo compact={compact} />
+        <NavLinksGroup compact={compact} />
+        <NavLink
+          compact={compact}
+          to="/settings"
+          iconClassName="fas fa-cog"
+          label="Settings"
+        />
+        <NavLink
+          compact={compact}
+          to="/feedback"
+          iconClassName="fas fa-comment-alt"
+          label="Feedback"
+        />
+        <NavToggle compact={compact} setCompact={setCompact} />
       </StyledNav>
     </>
   );

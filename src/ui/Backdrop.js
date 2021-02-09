@@ -1,4 +1,5 @@
 import styled, {css} from "styled-components";
+import {breakpoints as bp} from "../GlobalStyle"; 
 
 const Backdrop = styled.div`
     position: fixed;
@@ -12,6 +13,10 @@ const Backdrop = styled.div`
         opacity: 1;
         pointer-events: all;
     `}
+    @media(min-width: ${bp.desktop}) {
+        opacity: 0;
+        pointer-events: none;
+    }
 `;
 
 export default Backdrop;
