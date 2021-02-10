@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {breakpoints as bp} from '../../../GlobalStyle';
 
 const Button = styled.button`
     background-color: transparent;
@@ -11,6 +12,9 @@ const Button = styled.button`
     i {
         transition: transform 0.2s linear;
         transform: rotate(${p => p.compact ? "180deg" : "0deg"});
+    }
+    @media(max-width: ${bp.desktop}) {
+        display: none;
     }
 `;
 

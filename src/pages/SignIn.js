@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import {useHistory, useLocation} from 'react-router-dom';
 import { Field, Button, Message } from "../ui";
 import {useAuth} from '../authContext';
+import Page from '../ui/Page';
 
 function SignIn() {
   const history = useHistory();
@@ -38,7 +39,7 @@ function SignIn() {
   }
 
   return (
-    <div>
+    <Page title="Sign In">
       <h2>Sign In</h2>
       <form onSubmit={handleSubmit}>
         <Field labelText="Email">
@@ -62,7 +63,7 @@ function SignIn() {
         <Button variant="secondary" type="submit" loading={loading}>Sign in</Button>
         <Message text={error} type="error" />
       </form>
-    </div>
+    </Page>
   );
 }
 

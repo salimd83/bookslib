@@ -29,6 +29,7 @@ const StyledNav = styled.nav`
   }
   @media (max-width: ${bp.desktop}) {
     position: fixed;
+    width: var(--navbar-width);
     transform: translate3d(
       ${(p) =>
         p.visible ? 0 : "calc(var(--navbar-width) - var(--navbar-width)*2)"},

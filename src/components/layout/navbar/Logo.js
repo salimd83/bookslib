@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import {breakpoints as bp} from '../../../GlobalStyle';
 
 const StyleLink = styled(Link)`
   font-size: var(--fsize-7);
@@ -18,6 +19,11 @@ const StyleLink = styled(Link)`
       color: rgba(255,255,255, .9);
       opacity: ${p => Number(!p.compact)};
       transition: opacity 0.3s cubic-bezier(0.4, 0, 1, 1);
+  }
+  @media(max-width: ${bp.desktop}) {
+      span {
+          opacity: 1;
+      }
   }
 `;
 

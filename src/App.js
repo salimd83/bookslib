@@ -8,6 +8,7 @@ import { ToasterProvider } from "./ui/ToasterContext";
 import { AuthProvider } from "./authContext";
 import PrivateRoute from "./PrivateRoute";
 import GlobalStyle from './GlobalStyle';
+import Layout from './components/layout/Layout';
 
 function App() {
   return (
@@ -15,12 +16,12 @@ function App() {
       <Router>
         <GlobalStyle />
         <ToasterProvider>
-          <div className="App">
+          <Layout>
             <Switch>
               <PrivateRoute path="/" exact>
                 <Home />
               </PrivateRoute>
-              <PrivateRoute path="/products">
+              <PrivateRoute path="/products" exact>
                 <BookList />
               </PrivateRoute>
               <PrivateRoute path="/products/:id">
@@ -30,7 +31,7 @@ function App() {
                 <SignIn />
               </Route>
             </Switch>
-          </div>
+          </Layout>
         </ToasterProvider>
       </Router>
     </AuthProvider>

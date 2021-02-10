@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import Header from "./Header";
 import Navbar from "./Navbar";
+import { useAuth } from "../../authContext";
 
 const Grid = styled.div`
   display: grid;
@@ -25,16 +26,21 @@ const GridMain = styled.main`
 `;
 
 function Layout({ children, ...rest }) {
-    const [showNav, setShowNav] = useState(0);
-    const toggle = () => setShowNav(Number(!showNav));
+  const auth = useAuth();
+  const [showNav, setShowNav] = useState(0);
+  const toggle = () => setShowNav(Number(!showNav));
   return (
     <Grid {...rest}>
-      <GridNav>
-        <Navbar visible={showNav} close={toggle} />
-      </GridNav>
-      <GridHeader>
-        <Header toggle={toggle} />
-      </GridHeader>
+      {auth.user && (
+        <>
+          <GridNav>
+            <Navbar visible={showNav} close={toggle} />
+          </GridNav>
+          <GridHeader>
+            <Header toggle={toggle} />
+          </GridHeader>
+        </>
+      )}
       <GridMain>{children}</GridMain>
     </Grid>
   );

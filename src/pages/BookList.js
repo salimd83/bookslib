@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import firebase from "firebase/app";
 import BookItem from '../components/BookItem';
 import {Loading} from '../ui';
-import Layout from '../components/layout/Layout';
 import AddBook from "../components/AddBook";
+import Page from '../ui/Page';
 
 function BookList() {
   const [books, setBooks] = useState([]);
@@ -25,13 +25,13 @@ function BookList() {
   }, []);
 
   return (
-    <Layout className="book-list">
+    <Page title="Book list" className="book-list">
       <AddBook />
-      <h2>Book list</h2>
+      <br/><br/>
       {!books.length ? <Loading /> : books.map((book) => (
         <BookItem book={book} key={book.id} />
       ))}
-    </Layout>
+    </Page>
   );
 }
 

@@ -1,11 +1,10 @@
-import Layout from '../components/layout/Layout';
+import Page from '../ui/Page';
 
 function Home() {
-    return <Layout>
-        <h1>Welcome to Storelord</h1>
+    return <Page title="Welcome to Storelord">
         <p>Booklib home page dashboard</p>
         <p>Under construction.</p>
-    </Layout>
+    </Page>
 }
 
 export default Home;

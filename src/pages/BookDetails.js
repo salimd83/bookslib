@@ -2,11 +2,11 @@ import { useEffect, useReducer } from "react";
 import firebase from "firebase/app";
 import { useParams, useRouteMatch, Route, Switch } from "react-router-dom";
 import { Loading } from "../ui";
-import Layout from '../components/layout/Layout';
 import BookGeneral from "../components/book-details/BookGeneral";
 import BookAuthors from "../components/book-details/BookAuthors";
 import BookPhotos from "../components/book-details/BookPhotos";
 import BookMenu from "../components/book-details/BookMenu";
+import Page from '../ui/Page';
 
 const initialState = null;
 
@@ -55,8 +55,7 @@ function BookDetails() {
   }, [id]);
 
   return (
-    <Layout>
-      <h2>Books Details</h2>
+    <Page title="Books Details">
       <BookMenu url={match.url} />
       {book ? (
         <Switch>
@@ -73,7 +72,7 @@ function BookDetails() {
       ) : (
         <Loading />
       )}
-    </Layout>
+    </Page>
   );
 }
 

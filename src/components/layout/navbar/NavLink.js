@@ -1,5 +1,6 @@
 import { NavLink as Link } from "react-router-dom";
 import styled from "styled-components";
+import {breakpoints as bp} from '../../../GlobalStyle';
 
 const StyledLink = styled(Link)`
   min-height: 56px;
@@ -28,6 +29,14 @@ const StyledLink = styled(Link)`
   &:hover {
       text-decoration: none;
       background-color: rgba(255 255 255 / 5%);
+  }
+  &.active {
+      color: var(--color-primary);
+  }
+  @media(max-width: ${bp.desktop}) {
+      span {
+          opacity: 1;
+      }
   }
 `;
 

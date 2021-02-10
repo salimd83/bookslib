@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import NavLink from "./NavLink";
+import {breakpoints as bp} from '../../../GlobalStyle';
 
 const LinksGroup = styled.div`
   display: flex;
@@ -26,6 +27,9 @@ const LinksGroup = styled.div`
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.5);
+  }
+  @media(max-width: ${bp.desktop}) {
+      flex-grow: 1;
   }
 `;
 
