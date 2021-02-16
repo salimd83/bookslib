@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import {breakpoints as bp} from "../../GlobalStyle";
+import { breakpoints as bp } from "../../GlobalStyle";
 import { useAuth } from "../../authContext";
 import { Button } from "../../ui";
+import Tooltip from "../../ui/Tooltip";
 
 const Grid = styled.div`
   display: grid;
@@ -20,14 +21,14 @@ const Grid = styled.div`
     font-size: var(--fsize-6);
     i {
       display: none;
-      @media(max-width: ${bp.desktop}) {
+      @media (max-width: ${bp.desktop}) {
         display: inline;
       }
     }
   }
 `;
 
-function Header({toggle}) {
+function Header({ toggle }) {
   const auth = useAuth();
   return (
     <Grid>
@@ -37,7 +38,9 @@ function Header({toggle}) {
       <div className="mid"></div>
       <div>
         {auth.user.email}{" "}
-        <Button onClick={async () => await auth.signOut()}>Sign Out</Button>
+        <Tooltip text="Lorem ipsum dolor sit amet del consectitore" bg="secondary">
+          <Button onClick={async () => await auth.signOut()}>Sign Out</Button>
+        </Tooltip>
       </div>
     </Grid>
   );

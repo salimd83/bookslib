@@ -16,6 +16,7 @@ const StyledNav = styled.nav`
   z-index: 1000;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   transition-property: width, transform !important;
   transition-duration: 0.3s !important;
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1) !important;

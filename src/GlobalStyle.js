@@ -1,14 +1,16 @@
 import { createGlobalStyle } from "styled-components";
-import resetStyle from './resetStyle';
+import resetStyle from "./resetStyle";
 
 const breakpoints = {
-    desktop: '920px',
-}
+  desktop: "920px",
+};
 
 const GlobalStyle = createGlobalStyle`
     html {
-        --color-dark: #656565;
+        --color-dark: #444;
+        --color-dark-rgb: 68,68,68;
         --color-light: #f6f6f6;
+        --color-light-rgb: 246,246,246;
         --color-dark-contrast: var(--color-light);
         --color-light-contrast: var(--color-dark);
         --color-dark-hover: #4d4d4d;
@@ -22,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
         --color-secondary: #03a9f4;
         --color-secondary-rgb: 3,169,244;
         --color-secondary-contrast: var(--color-light);
-        --color-secondary-hover: #03a9f4;
+        --color-secondary-hover: #0390d0;
         --color-green: #37b400;
         --color-green-contrast: var(--color-light);
         --color-red: #f31700;
@@ -121,9 +123,21 @@ const GlobalStyle = createGlobalStyle`
         clip: rect(1px, 1px, 1px, 1px);
         opacity: 0;
     }
+
+    .tooltip {
+        position: relative;
+    }
+    .tooltip::before {
+            content: "title";
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background-color: rgba(var(--color-dark-rgb, 0 0 0) / 90%);
+            color: var(--color-dark-hover-rgb, white);
+            padding: 5px 10px;
+            border-radius: var(--border-radius);
+        }
 `;
 
 export default GlobalStyle;
-export {
-    breakpoints
-}
+export { breakpoints };

@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import NavLink from "./NavLink";
-import {breakpoints as bp} from '../../../GlobalStyle';
+import { breakpoints as bp } from "../../../GlobalStyle";
 
 const LinksGroup = styled.div`
   display: flex;
   flex-direction: column;
-  flex-grow: ${p => Number(!p.compact)};
+  flex-grow: ${(p) => Number(!p.compact)};
   padding: 24px 0 14px 0;
   margin-right: 2px;
   overflow: hidden;
@@ -28,8 +28,8 @@ const LinksGroup = styled.div`
   ::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.5);
   }
-  @media(max-width: ${bp.desktop}) {
-      flex-grow: 1;
+  @media (max-width: ${bp.desktop}) {
+    flex-grow: 1;
   }
 `;
 

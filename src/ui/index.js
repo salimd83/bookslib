@@ -8,6 +8,7 @@ import Divider from './Divider';
 import DropBox from './DropBox';
 import ImgProgress from './ImgProgress';
 import Gallery from './Gallery';
+import Tooltip from './Tooltip';
 
 export {
     Button,
@@ -19,5 +20,6 @@ export {
     Divider,
     DropBox,
     ImgProgress,
-    Gallery
+    Gallery,
+    Tooltip
 }
