@@ -7,8 +7,10 @@ const breakpoints = {
 
 const GlobalStyle = createGlobalStyle`
     html {
-        --color-dark: #656565;
+        --color-dark: #444;
+        --color-dark-rgb: 68,68,68;
         --color-light: #f6f6f6;
+        --color-light-rgb: 246,246,246;
         --color-dark-contrast: var(--color-light);
         --color-light-contrast: var(--color-dark);
         --color-dark-hover: #4d4d4d;

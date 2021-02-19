@@ -19,6 +19,7 @@ const StyledNav = styled.nav`
   transition-property: width, transform !important;
   transition-duration: 0.3s !important;
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1) !important;
+  overflow: hidden;
   &::before {
     content: "";
     background-color: rgba(var(--color-secondary-rgb), 0.2);

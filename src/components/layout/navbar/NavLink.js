@@ -1,6 +1,7 @@
 import { NavLink as Link } from "react-router-dom";
 import styled from "styled-components";
-import {breakpoints as bp} from '../../../GlobalStyle';
+import { breakpoints as bp } from "../../../GlobalStyle";
+import { Tooltip } from "../../../ui";
 
 const StyledLink = styled(Link)`
   min-height: 56px;
@@ -23,33 +24,35 @@ const StyledLink = styled(Link)`
     padding-left: 14px;
     line-height: 19px;
     white-space: nowrap;
-    opacity: ${p => Number(!p.compact)};
+    opacity: ${(p) => Number(!p.compact)};
     transition: opacity 0.3s cubic-bezier(0.4, 0, 1, 1);
   }
   &:hover {
-      text-decoration: none;
-      background-color: rgba(255 255 255 / 5%);
+    text-decoration: none;
+    background-color: rgba(255 255 255 / 5%);
   }
   &.active {
-      color: var(--color-primary);
+    color: var(--color-primary);
   }
-  @media(max-width: ${bp.desktop}) {
-      span {
-          opacity: 1;
-      }
+  @media (max-width: ${bp.desktop}) {
+    span {
+      opacity: 1;
+    }
   }
 `;
 
 function NavLink({ children, iconClassName, label, ...rest }) {
   return (
-    <StyledLink to="/products" {...rest}>
-      {children || (
-        <>
-          <i className={iconClassName} />
-          <span className="label">{label}</span>
-        </>
-      )}
-    </StyledLink>
+    <Tooltip text={label} disabled={!rest.compact} placement="right">
+      <StyledLink to="/products" {...rest}>
+        {children || (
+          <>
+            <i className={iconClassName} />
+            <span className="label">{label}</span>
+          </>
+        )}
+      </StyledLink>
+    </Tooltip>
   );
 }
 
