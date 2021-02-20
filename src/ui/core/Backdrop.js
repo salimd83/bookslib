@@ -1,5 +1,5 @@
 import styled, {css} from "styled-components";
-import {breakpoints as bp} from "../GlobalStyle"; 
+import {breakpoints as bp} from "../../GlobalStyle"; 
 
 const Backdrop = styled.div`
     position: fixed;

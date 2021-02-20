@@ -1,4 +1,5 @@
-import { Tooltip, Button } from "../ui";
+import Button from "../ui/core/Button";
+import Tooltip from "../ui/Tooltip";
 import Page from "../ui/Page";
 
 function Home() {

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import firebase from "firebase/app";
-import { Button, Modal } from "../ui";
-import { ToasterContext } from "../ui/ToasterContext";
+import Button from "../ui/core/Button";
+import Modal from "../ui/Modal";
+import {ToasterContext} from "../ui/toasterCtx/ToasterContext";
 import BookForm from "./BookForm";
 
 function AddBook() {

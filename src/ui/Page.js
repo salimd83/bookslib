@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {Divider} from './';
+import Divider from './core/Divider';
 
 const Header = styled.div`
     min-height: 38px;

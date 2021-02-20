@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { breakpoints as bp } from "../../GlobalStyle";
 import { useAuth } from "../../authContext";
-import { Button, Tooltip } from "../../ui";
+import Button from "../../ui/core/Button";
+import Tooltip from "../../ui/Tooltip";
 
 const Grid = styled.div`
   display: grid;

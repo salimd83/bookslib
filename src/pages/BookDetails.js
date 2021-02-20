@@ -1,7 +1,7 @@
 import { useEffect, useReducer } from "react";
 import firebase from "firebase/app";
 import { useParams, useRouteMatch, Route, Switch } from "react-router-dom";
-import { Loading } from "../ui";
+import { Loading } from "../ui/core";
 import BookGeneral from "../components/book-details/BookGeneral";
 import BookAuthors from "../components/book-details/BookAuthors";
 import BookPhotos from "../components/book-details/BookPhotos";

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Logo from "./navbar/Logo";
 import { breakpoints as bp } from "../../GlobalStyle";
-import Backdrop from "../../ui/Backdrop";
+import Backdrop from "../../ui/core/Backdrop";
 import NavLink from "./navbar/NavLink";
 import NavLinksGroup from "./navbar/NavLinksGroup";
 import { useState } from "react";

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import {useHistory, useLocation} from 'react-router-dom';
-import { Field, Button, Message } from "../ui";
+import { Field, Button, Message } from "../ui/core";
 import {useAuth} from '../authContext';
 import Page from '../ui/Page';
 

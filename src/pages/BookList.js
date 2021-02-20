@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import firebase from "firebase/app";
 import BookItem from '../components/BookItem';
-import {Loading} from '../ui';
+import {Loading} from '../ui/core';
 import AddBook from "../components/AddBook";
 import Page from '../ui/Page';
 

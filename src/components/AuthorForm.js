@@ -1,4 +1,4 @@
-import { Field, Message, Button } from "../ui";
+import { Field, Message, Button } from "../ui/core";
 import profileImg from "../profile-placeholder.png";
 import {getBase64URL} from '../functions/imageFn';
 

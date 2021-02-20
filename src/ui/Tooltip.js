@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React, { useState, useRef } from "react";
-import Portal from "./Portal";
+import Portal from "./core/Portal";
 
 const StyledTooltip = styled.span.attrs((p) => ({
   bg: p.bg || 'dark',
