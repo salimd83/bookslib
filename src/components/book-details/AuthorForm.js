@@ -1,6 +1,6 @@
-import { Field, Message, Button } from "../ui/core";
-import profileImg from "../profile-placeholder.png";
-import {getBase64URL} from '../functions/imageFn';
+import { Field, Message, Button } from "../../ui/core";
+import profileImg from "../../profile-placeholder.png";
+import {getBase64URL} from '../../functions/imageFn';
 
 function AuthorForm({ error, loading, onSubmit, author, setAuthor }) {
   const handleChange = (e) => {

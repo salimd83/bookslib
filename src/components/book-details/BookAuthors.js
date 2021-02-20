@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import firebase from "firebase/app";
 import {Divider} from '../../ui/core';
 import { ToasterContext } from "../../ui/toasterCtx/ToasterContext";
-import AuthorForm from "../AuthorForm";
+import AuthorForm from "./AuthorForm";
 import BookAuthor from "./BookAuthor";
 import { resizeImg } from '../../functions/imageFn';
 
