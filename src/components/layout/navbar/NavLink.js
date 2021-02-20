@@ -1,7 +1,7 @@
 import { NavLink as Link } from "react-router-dom";
 import styled from "styled-components";
 import { breakpoints as bp } from "../../../GlobalStyle";
-import { Tooltip } from "../../../ui";
+import Tooltip from "../../../ui/Tooltip";
 
 const StyledLink = styled(Link)`
   min-height: 56px;

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import firebase from "firebase/app";
-import BookItem from '../components/BookItem';
-import {Loading} from '../ui';
-import AddBook from "../components/AddBook";
+import BookItem from '../components/book-list/BookItem';
+import {Loading} from '../ui/core';
+import AddBook from "../components/book/AddBook";
 import Page from '../ui/Page';
 
 function BookList() {

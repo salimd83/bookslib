@@ -1,6 +1,6 @@
 import {useContext} from 'react';
 import firebase from 'firebase/app';
-import {ToasterContext} from '../../ui/ToasterContext';
+import {ToasterContext} from '../../ui/toasterCtx/ToasterContext';
 import imgProfile from '../../profile-placeholder.png';
 import {excerpt} from '../../functions/stringFn';
 
