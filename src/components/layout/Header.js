@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { breakpoints as bp } from "../../GlobalStyle";
 import { useAuth } from "../../authContext";
-import Button from "../../ui/core/Button";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { Avatar, IconButton } from "../../ui/core";
 import Tooltip from "../../ui/Tooltip";
+import AccountInfo from "./header/AccountInfo";
 
 const Grid = styled.div`
   display: grid;
@@ -17,30 +19,46 @@ const Grid = styled.div`
   button {
     white-space: nowrap;
   }
-  &:first-child {
+  .nav-toggle {
     font-size: var(--fsize-6);
-    i {
-      display: none;
-      @media (max-width: ${bp.desktop}) {
-        display: inline;
-      }
+    pointer-events: none;
+    opacity: 0;
+    @media (max-width: ${bp.desktop}) {
+      opacity: 1;
+      pointer-events: all;
     }
   }
 `;
 
 function Header({ toggle }) {
   const auth = useAuth();
+
   return (
     <Grid>
-      <div onClick={toggle}>
-        <i className="fas fa-bars" />
-      </div>
+      <IconButton
+        className="nav-toggle"
+        onClick={toggle}
+        icon={faBars}
+        style={{ marginLeft: "-11px" }}
+      />
       <div className="mid"></div>
       <div>
-        {auth.user.email}{" "}
-        <Tooltip text="Lorem ipsum dolor sit amet del consectitore" bg="secondary">
-          <Button onClick={async () => await auth.signOut()}>Sign Out</Button>
+        <Tooltip text={<AccountInfo user={auth.user} />} delay={0.3}>
+          <IconButton size="5" bg="primary">
+            <Avatar
+              size={5}
+              bg="primary"
+              name={auth.user.displayName || auth.user.email}
+              image={auth.user.profileImage}
+            />
+          </IconButton>
         </Tooltip>
+        {/* <Tooltip
+          text="Lorem ipsum dolor sit amet del consectitore"
+          bg="secondary"
+        >
+          <Button onClick={async () => await auth.signOut()}>Sign Out</Button>
+        </Tooltip> */}
       </div>
     </Grid>
   );

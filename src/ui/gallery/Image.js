@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import styled, { css } from "styled-components";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { ToasterContext } from "../toasterCtx/ToasterContext";
 import IconButton from "../core/IconButton";
 import {prefixFileName} from '../../functions/imageFn';
@@ -53,9 +54,10 @@ function Image({ img, deletePhoto }) {
       <img src={prefixFileName(img, 'thumb_')} height="150" alt="" />
       <div>
         <IconButton
-          iconClass="fas fa-trash"
+          icon={faTrash}
           loading={loading}
-          color="white"
+          bg="light"
+          size={4}
           onClick={onDelete}
         />
       </div>
