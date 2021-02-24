@@ -72,7 +72,7 @@ function Button(props) {
   props = {...props, loading: Number(props.loading || 0)};
   return (
     <ButtonStyled {...{...props, disabled: props.loading || props.disabled}}>
-      <span class="label">{props.children}</span>
+      <span className="label">{props.children}</span>
       {props.loading ? <span className="loading"><Loading /></span> : ""}
     </ButtonStyled>
   );
