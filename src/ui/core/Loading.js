@@ -1,6 +1,9 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
+
 function Loading() {
     return (
-        <i className="fas fa-circle-notch fa-spin"></i>
+        <FontAwesomeIcon icon={faCircleNotch} spin />
     );
 }
 
