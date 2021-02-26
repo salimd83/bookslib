@@ -7,10 +7,8 @@ import Page from "../ui/Page";
 import { faRobot } from "@fortawesome/free-solid-svg-icons";
 
 const options = [
-  { size: 2, color: "blue" },
-  { size: 3, color: "orange" },
   { size: 4, color: "green" },
-  { size: 5, color: "light" },
+  { size: 5, color: "orange" },
   { size: 6, color: "gray" },
   { size: 7, color: "dark" },
   { size: 8, color: "secondary" },

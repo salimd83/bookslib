@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { breakpoints as bp } from "../../GlobalStyle";
 import { useAuth } from "../../authContext";
-import Button from "../../ui/core/Button";
 import Tooltip from "../../ui/Tooltip";
+import { Avatar, IconButton } from "../../ui/core";
+import AccountInfo from "./header/AccountInfo";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 const Grid = styled.div`
   display: grid;
@@ -32,15 +34,26 @@ function Header({ toggle }) {
   const auth = useAuth();
   return (
     <Grid>
-      <div onClick={toggle}>
-        <i className="fas fa-bars" />
-      </div>
+      <IconButton onClick={toggle} icon={faBars} style={{marginLeft: '-11px'}} />
+
       <div className="mid"></div>
       <div>
-        {auth.user.email}{" "}
-        <Tooltip text="Lorem ipsum dolor sit amet del consectitore" bg="secondary">
-          <Button onClick={async () => await auth.signOut()}>Sign Out</Button>
+        <Tooltip text={<AccountInfo user={auth.user} />}>
+          <IconButton bg="primary" size={5}>
+            <Avatar
+              size={5}
+              bg="primary"
+              image={auth.user.profileImage}
+              name={auth.user.displayName || auth.user.email}
+            ></Avatar>
+          </IconButton>
         </Tooltip>
+        {/* <Tooltip
+          text="Lorem ipsum dolor sit amet del consectitore"
+          bg="secondary"
+        >
+          <Button onClick={async () => await auth.signOut()}>Sign Out</Button>
+        </Tooltip> */}
       </div>
     </Grid>
   );

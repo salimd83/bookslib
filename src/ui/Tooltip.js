@@ -9,7 +9,7 @@ const StyledTooltip = styled.span.attrs((p) => ({
   position: fixed;
   top: ${(p) => p.posRef.current.y}px;
   left: ${(p) => p.posRef.current.x}px;
-  font-size: var(--fsize-1);
+  font-size: var(--fsize-2);
   font-weight: 700;
   letter-spacing: 0.02em;
   background-color: rgba(var(--color-${p => p.bg}-rgb, 0,0,0), 0.9);

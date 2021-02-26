@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import { ToasterContext } from "../toasterCtx/ToasterContext";
 import IconButton from "../core/IconButton";
 import {prefixFileName} from '../../functions/imageFn';
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const Figure = styled.div`
   position: relative;
@@ -53,9 +54,10 @@ function Image({ img, deletePhoto }) {
       <img src={prefixFileName(img, 'thumb_')} height="150" alt="" />
       <div>
         <IconButton
-          iconClass="fas fa-trash"
+          icon={faTrash}
+          size={5}
           loading={loading}
-          color="white"
+          bg="light"
           onClick={onDelete}
         />
       </div>

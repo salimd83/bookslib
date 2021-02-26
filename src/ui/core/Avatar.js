@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Profile from "../Assets/Profile";
+import Profile from "../assets/Profile";
 import { initials } from "../../functions/stringFn";
 
 const StyledAvatar = styled.span.attrs((p) => {
