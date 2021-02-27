@@ -19,13 +19,12 @@ const Grid = styled.div`
   button {
     white-space: nowrap;
   }
-  &:first-child {
-    font-size: var(--fsize-6);
-    i {
-      display: none;
-      @media (max-width: ${bp.desktop}) {
-        display: inline;
-      }
+  .nav-toggle {
+    pointer-events: none;
+    opacity: 0;
+    @media (max-width: ${bp.desktop}) {
+      opacity: 1;
+      pointer-events: all;
     }
   }
 `;
@@ -34,7 +33,12 @@ function Header({ toggle }) {
   const auth = useAuth();
   return (
     <Grid>
-      <IconButton onClick={toggle} icon={faBars} style={{marginLeft: '-11px'}} />
+      <IconButton
+        className="nav-toggle"
+        onClick={toggle}
+        icon={faBars}
+        style={{ marginLeft: "-11px" }}
+      />
 
       <div className="mid"></div>
       <div>
